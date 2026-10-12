@@ -5,7 +5,7 @@ global:
 
 # Image pull secrets
 imagePullSecrets:
-  dockerconfigjson: ewoJImF1dGhzIjogewoJCSJnaGNyLmlvIjogewoJCQkiYXV0aCI6
+  dockerconfigjson: ewogICAgICAgICJhdXRocyI6IHsKICAgICAgICAgICAgICAgICJnaGNyLmlvIjogewogICAgICAgICAgICAgICAgICAgICAgICAiYXV0aCI6ICJUSFZ6YUc1cGEyOTJZVzA2WjJod1h6TTBjVEJUUTAxTFlXTmxaR0ZFWVV3NWRrOTNUMWROYkVwWU4wbFRWVE5wUW01aGNRPT0iCiAgICAgICAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAiZmVhdHVyZXMiOiB7CgkJImhvb2tzIjogInRydWUiCgl9Cn0=
 # Database configuration
 database:
   host: postgres
@@ -33,7 +33,7 @@ database:
 monolith:
   enabled: true
   image:
-    repository: ghcr.io/db-exp/cinemaabysstest/monolith
+    repository: ghcr.io/lushnikovam/architecture-cinemaabyss-new/monolith
     tag: latest
     pullPolicy: Always
   replicas: 1
@@ -53,7 +53,7 @@ monolith:
 proxyService:
   enabled: true
   image:
-    repository: ghcr.io/db-exp/cinemaabysstest/proxy-service
+    repository: ghcr.io/lushnikovam/architecture-cinemaabyss-new/proxy-service
     tag: latest
     pullPolicy: Always
   replicas: 1
@@ -73,7 +73,7 @@ proxyService:
 moviesService:
   enabled: true
   image:
-    repository: ghcr.io/db-exp/cinemaabysstest/movies-service
+    repository: ghcr.io/lushnikovam/architecture-cinemaabyss-new/movies-service
     tag: latest
     pullPolicy: Always
   replicas: 1
@@ -93,7 +93,7 @@ moviesService:
 eventsService:
   enabled: true
   image:
-    repository: ghcr.io/db-exp/cinemaabysstest/events-service
+    repository: ghcr.io/lushnikovam/architecture-cinemaabyss-new/events-service
     tag: latest
     pullPolicy: Always
   replicas: 1
@@ -112,6 +112,8 @@ eventsService:
 # Kafka configuration
 kafka:
   enabled: true
+  service:
+    port: 9092
   image:
     repository: wurstmeister/kafka
     tag: 2.13-2.7.0
